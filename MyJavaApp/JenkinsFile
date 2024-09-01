@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build and Analyze with Maven') {
             steps {
-                script {
+                script {it -> ...}
                     // Perform Maven build and SonarQube analysis
                     withSonarQubeEnv("${SONARQUBE_SERVER}") {
                         sh 'mvn clean verify sonar:sonar'
