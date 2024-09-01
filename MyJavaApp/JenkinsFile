@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = 'docker-cred'  
+        DOCKER_CREDENTIALS_ID = 'docker-cred'  // Replace with your Docker Hub credentials ID
         DOCKER_IMAGE_NAME = 'my-java-app'
         DOCKER_TAG = 'latest'
-        SONARQUBE_SERVER = 'sonarqube' 
+        SONARQUBE_SERVER = 'sonaqube'  // Replace with your SonarQube server name configured in Jenkins
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // https://github.com/srigopu12/Jenkins-pipeline/tree/main/MyJavaApp
+                // Clone the repository containing the Java application
                 checkout scm
             }
         }
@@ -73,6 +73,8 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 script {
+                    // Add your deployment steps here, e.g., using Docker Compose or Kubernetes
+                    // Example:
                     // sh 'docker-compose up -d'
                 }
             }
@@ -86,3 +88,4 @@ pipeline {
         }
     }
 }
+
